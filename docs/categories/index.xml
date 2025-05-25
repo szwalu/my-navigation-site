@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on WOabc | 好用的导航</title>
-    <link>https://www.tqabc.com/categories/</link>
+    <link>https://www.woabc.com/categories/</link>
     <description>Recent content in Categories on WOabc | 好用的导航</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <atom:link href="https://www.tqabc.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.woabc.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
