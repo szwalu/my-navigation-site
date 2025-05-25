@@ -1,4 +1,4 @@
-baseURL               = "https://www.tqabc.com/"
+baseURL               = "https://szwalu.github.io/mynavsite/"
 languageCode          = "zh-CN"
 title                 = "WOabc | 好用的导航"
 theme                 = "WebStack-Hugo"
