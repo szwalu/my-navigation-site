@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WOabc | 好用的导航</title>
-    <link>https://szwalu.github.io/mynavsite/</link>
+    <link>https://www.tqabc.com/</link>
     <description>Recent content on WOabc | 好用的导航</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 05 Nov 2019 19:41:12 -0500</lastBuildDate>
-    <atom:link href="https://szwalu.github.io/mynavsite/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.tqabc.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>about</title>
-      <link>https://szwalu.github.io/mynavsite/about/</link>
+      <link>https://www.tqabc.com/about/</link>
       <pubDate>Tue, 05 Nov 2019 19:41:12 -0500</pubDate>
-      <guid>https://szwalu.github.io/mynavsite/about/</guid>
+      <guid>https://www.tqabc.com/about/</guid>
       <description></description>
     </item>
   </channel>
