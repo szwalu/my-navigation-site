@@ -4,11 +4,11 @@
 
 - item: 作者
   icon: fa fa-user-secret
-  link: https://xazz.top/about
+  link: https://woabc.com/about
 
 - item: 博客
   icon: fa fa-blog
-  link: https://xazz.top
+  link: https://woabc.com
 
 - item: 关于
   icon: fa fa-cog
@@ -22,4 +22,4 @@
       link: "https://fontawesome.com/"
     - name: 文档
       icon: fas fa-file-alt
-      link: "https://doks.xazz.top/"
+      link: "https://www.woabc.com/"

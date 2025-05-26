@@ -22,14 +22,14 @@
       logo: ft.ico
       url: https://www.ftchinese.com
       description: FT中文网
-    - title: 开源
+    - title: 德国之声中文
+      logo: dgzs.ico
+      url: https://www.dw.com/zh
+      description: 德国之声中文网
+    - title: 开源github
       logo: github.ico
-      url: https://github.com/i-kirito/nav.github.io
+      url: https://github.com/
       description: 导航站GitHub开源
-    - title: Chatgpt镜像
-      logo: chatgpt.ico
-      url: https://chat.xazz.top/
-      description: 不需要加速也能上
     - title: Wallhaven
       logo: wallhaven.ico
       url: https://wallhaven.cc

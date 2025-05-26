@@ -9,11 +9,11 @@ publishDir            = "docs"					# 站点静态文件保存目录
 
 
 [params]
-    author        = "ikirito"
-    description   = "WOabc | Hugo WebStack BY ikirito"
-    upload        = "https://wj.qq.com/s2/12053817/3264/"  # 左侧导航栏的"网站提交"
-    about         = "https://doks.xazz.top/"	# 左侧导航栏的"关于导航"页面(./about)
-    repository    = "https://github.com/i-kirito"  
+    author        = "WOabc"
+    description   = "WOabc | Hugo WebStack BY WOabc"
+    upload        = "mailto:ming@gwoabc.com"  # 左侧导航栏的"网站提交"
+    about         = "https://www.woabc.com/about.html"	# 左侧导航栏的"关于导航"页面(./about)
+    repository    = "https://www.woabc.com/"  
     enablePreLoad = true					# 网站完全打开前预加载动画
     textPreLoad   = "WOabc"				# 预加载的动画文字, 只有当enablePreLoad=true时生效
     expandSidebar = true					# 默认展开左侧边导航栏
@@ -23,7 +23,7 @@ publishDir            = "docs"					# 站点静态文件保存目录
     yiyan         = true                         		# 默认启用一言服务
 
 [params.seo]    
-    baiduhmid     = 'efccc04cb44fc49faddac5876180b369'		# 百度统计 hm.src 的 ID
+    baiduhmid     = 'efccc04cb44fc49faddac5876180b360'		# 百度统计 hm.src 的 ID
     baiduSiteVer  = 'codeva-cCAOSG8MBO'				# 百度HTML标签验证(baidu-site-verification)
     tj51laid        = ''                        		# 51.LA 网站统计
     tj51lack        = ''
@@ -44,4 +44,4 @@ publishDir            = "docs"					# 站点静态文件保存目录
     unsafe = true
 
 [params.footer]
-    copyright = '本站内容源自互联网，如有内容侵犯权益，请联系站长删除相关内容，联系邮箱：mail@xazz.top <br/><br/><span id="RunTime" style="color:#FC4E27;letter-spacing:2px"></span><br/><br/>&copy; 2023 - {year} By [WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo) | [ikirito-Github](https://github.com/i-kirito) | [备案号](https://nav.xazz.top)<br/>'
+    copyright = '本站内容源自互联网，如有内容侵犯权益，请联系站长删除相关内容，联系邮箱：ming@woabc.com <br/><br/><span id="RunTime" style="color:#FC4E27;letter-spacing:2px"></span><br/><br/>&copy; 2023 - {year} By [WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo) | [ikirito-Github](https://github.com/i-kirito) <br/>'
