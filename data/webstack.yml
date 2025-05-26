@@ -23,8 +23,8 @@
       url: https://www.ftchinese.com
       description: FT中文网
     - title: 德国之声中文
-      logo: deguozisheng.ico
-      url: https://www.dw.com/zh
+      logo: ft.ico
+      url: https://www.ftchinese.com
       description: 德国之声中文网
     - title: 开源github
       logo: github.ico
