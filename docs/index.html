@@ -7348,25 +7348,40 @@ document.getElementById(id).innerHTML = "WOabc已运行：" + RunTime;
 setInterval("ShowRunTime('RunTime')", 1000);
 </script>
 <script>
-    
-    const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
+  
+  function isMobileDevice() {
+    return window.innerWidth <= 768; 
+  }
 
-        Toast.fire({
-            icon: 'success',
-            title: '网页正式发布，欢迎访问',
-            text: '左下角提交网站，收录！',
-            heightAuto: 'false'
-        })
+  
+  if (isMobileDevice()) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom', 
+      showConfirmButton: false,
+      timer: 10000, 
+      timerProgressBar: true,
+      width: '165px', 
+      customClass: {
+        popup: 'mobile-guide-toast' 
+      },
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+
+    Toast.fire({
+      html: `
+        <div style="text-align: center; line-height: 1.25; font-size: 10px;">
+          添加网址导航到桌面<br>
+          点击下面的 <img alt="分享图标" class="inline-icon highlight-icon" src="assets/images/1122.jpg" style="height: 14px; width: 14px; vertical-align: middle; margin: 2px 4px;"/> <br>
+          然后选择“添加到主屏幕”
+        </div>
+      `,
+    });
+  }
+</script>
 </script>
 </body>
 </html>

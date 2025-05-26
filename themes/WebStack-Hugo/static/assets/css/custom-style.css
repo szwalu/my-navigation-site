@@ -186,3 +186,33 @@ footer.main-footer .footer-text a:hover {
     background-size: 15px 15px;
     background-color: #d8d8d8;
 }
+
+/* 自定义移动端引导弹窗添加到主屏幕的样式 */
+.mobile-guide-toast {
+  position: relative !important;
+  background-color: #ffffff !important; /* 弹窗背景色 - 白色 */
+  color: #333333 !important; /* 弹窗文字颜色 - 深灰色 */
+  border-radius: 8px !important;
+  padding: 3px 1px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  overflow: visible !important; /* 新增：确保伪元素不会被裁剪 */
+  z-index: 9999 !important; /* 新增：尝试提高弹窗的层级，以防被遮挡 */
+}
+
+/* 弹窗底部的小箭头 */
+.mobile-guide-toast::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* 箭头向下突出8px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff; /* 箭头的颜色 - 白色 (与弹窗背景色一致) */
+  /* 为了调试，可以临时给箭头一个非常明显的边框颜色，看看它是否在，只是颜色不对 */
+  /* border-top: 8px solid red !important; */
+  z-index: 1; /* 确保箭头在弹窗的背景之上，但如果弹窗有其他内部元素，可能需要调整 */
+              /* 通常不需要为伪元素设置z-index，除非有特别复杂的层叠 */
+}

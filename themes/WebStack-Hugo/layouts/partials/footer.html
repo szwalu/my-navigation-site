@@ -139,25 +139,40 @@ document.getElementById(id).innerHTML = "WOabc已运行：" + RunTime;
 setInterval("ShowRunTime('RunTime')", 1000);
 </script>
 <script>
-    // 弹窗效果
-    const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
+  // 函数：检测是否为移动端设备 (基于屏幕宽度)此处为添加到主屏幕弹窗
+  function isMobileDevice() {
+    return window.innerWidth <= 768; // 你可以根据需要调整这个宽度阈值
+  }
 
-        Toast.fire({
-            icon: 'success',
-            title: '网页正式发布，欢迎访问',
-            text: '左下角提交网站，收录！',
-            heightAuto: 'false'
-        })
+  // 仅在移动端设备上执行
+  if (isMobileDevice()) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom', // 固定在屏幕底部
+      showConfirmButton: false,
+      timer: 10000, // 显示时间为10秒
+      timerProgressBar: true,
+      width: '165px', //  调整后的弹窗宽度 (可以根据实际效果调整)
+      customClass: {
+        popup: 'mobile-guide-toast' // 自定义类，用于CSS样式 (包括箭头)
+      },
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+
+    Toast.fire({
+      html: `
+        <div style="text-align: center; line-height: 1.25; font-size: 10px;">
+          添加网址导航到桌面<br>
+          点击下面的 <img alt="分享图标" class="inline-icon highlight-icon" src="assets/images/1122.jpg" style="height: 14px; width: 14px; vertical-align: middle; margin: 2px 4px;"/> <br>
+          然后选择“添加到主屏幕”
+        </div>
+      `,
+    });
+  }
+</script>
 </script>
 </body>
 </html>
