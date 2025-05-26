@@ -2,27 +2,26 @@
 - taxonomy: 主站推荐
   icon: far fa-star
   links:
-    - title: 小A猪崽
-      logo: xazz.ico
-      url: https://nav.xazz.top
-      description: 丰富的导航站
     - title: 博客
       logo: 博客.ico
       url: https://xazz.top
       description: 站长的博客
-    - title: 关于我
-      logo: 关于我.ico
-      url: https://doks.xazz.top/blog
-      qrcode: assets/images/my.png
-      description: 站长的个人介绍
-    - title: 文档库
-      logo: doks.ico
-      url: https://doks.xazz.top
-      description: 小A猪崽的文档库
-    - title: 探针
-      logo: 探针.svg
-      url: https://vps.xazz.top
-      description: 哪吒探针管理
+    - title: 纽约时报中文
+      logo: nysb.ico
+      url: https://cn.nytimes.com/
+      description: 纽约时报中文网
+    - title: BBC中文
+      logo: bbc.ico
+      url: https://www.bbc.com/zhongwen/simp
+      description: BBC中文网
+    - title: 华尔街日报中文
+      logo: hejrb.ico
+      url: https://cn.wsj.com/zh-hans
+      description: 华尔街日报中文网
+    - title: FT中文网
+      logo: ft.ico
+      url: https://www.ftchinese.com
+      description: FT中文网
     - title: 开源
       logo: github.ico
       url: https://github.com/i-kirito/nav.github.io
