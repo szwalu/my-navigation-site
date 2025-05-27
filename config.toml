@@ -1,6 +1,6 @@
 baseURL               = "https://www.woabc.com/"
 languageCode          = "zh-CN"
-title                 = "WOabc | 好用的导航"
+title                 = "WOabc | WO在手，abc全有！"
 theme                 = "WebStack-Hugo"
 preserveTaxonomyNames = true
 disablePathToLower    = true
