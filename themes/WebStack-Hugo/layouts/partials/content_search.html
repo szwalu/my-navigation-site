@@ -191,7 +191,7 @@
 
 <script>
     function fetchWeather() {
-        fetch('https://api.weatherapi.com/v1/current.json?key=553d956e2e2941f9870160920252704&q=auto:ip&lang=zh')
+fetch('https://weatherapi.yjhy88.workers.dev/?q=auto:ip&lang=zh')
             .then(response => response.json())
             .then(data => {
                 const weather = data.current;
