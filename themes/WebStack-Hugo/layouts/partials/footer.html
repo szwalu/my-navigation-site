@@ -1,221 +1,178 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <!-- 内嵌 CSS 部分：定义搜索背景（#search-bg）的变量及系统和手动模式样式 -->
-    <style>
-      /* 默认搜索背景：亮色背景 */
-      :root {
-        --search-bg: url({{ $.Site.Params.images.searchImageL }});
-      }
-      
-      /* 当系统偏好为暗色时，自动切换为暗色背景 */
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --search-bg: url({{ $.Site.Params.images.searchImageD }});
-        }
-      }
-      
-      /* 应用 CSS 变量 */
-      #search-bg {
-        background-image: var(--search-bg);
-      }
-      
-      /* 当用户手动切换时，覆盖 CSS 变量（优先级高于媒体查询效果） */
-      body.manual-light {
-        --search-bg: url({{ $.Site.Params.images.searchImageL }});
-      }
-      body.manual-dark {
-        --search-bg: url({{ $.Site.Params.images.searchImageD }});
-      }
-    </style>
-
-    <!-- 以下是现有的脚本代码 -->
-    <script type="text/javascript" src='{{ relURL "assets/js/jquery.ui.touch-punch.min-0.2.2.js" }}' id="jqueryui-touch-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/clipboard.min-5.6.2.js" }}' id="clipboard-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/tooltip-extend.js" }}' id="iplaycode-nav-js"></script>
-    <script type="text/javascript" id="popper-js-extra">
-      /* <![CDATA[ */
-      var theme = {
-        "ajaxurl":"",
-        "addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/onenav\/images\/add.png",
-        "order":"asc",
-        "formpostion":"top",
-        "defaultclass":"io-grey-mode",
-        "isCustomize":"1",
-        "icourl":"",
-        "icopng":".png",
-        "urlformat":"1",
-        "customizemax":"10",
-        "newWindow":"0",
-        "lazyload":"1",
-        "minNav":"1",
-        "loading":"1",
-        "hotWords":"baidu",
-        "classColumns":" col-sm-6 col-md-4 col-xl-5a col-xxl-6a ",
-        "apikey":"TWpBeU1UVTNOekk1TWpVMEIvZ1M2bFVIQllUMmxsV1dZelkxQTVPVzB3UW04eldGQmxhM3BNWW14bVNtWk4="
-      };
-      /* ]]> */
-    </script>
-    <!-- 弹窗js -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- 结束 -->
-    <script type="text/javascript" src='{{ relURL "assets/js/popper.min.js" }}' id="popper-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/bootstrap.min-4.3.1.js" }}' id="bootstrap-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/theia-sticky-sidebar-1.5.0.js" }}' id="sidebar-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/lazyload.min-12.4.0.js" }}' id="lazyload-js"></script>
-    <script type="text/javascript" src='{{ relURL "assets/js/fancybox.min-3.5.7.js" }}' id="lightbox-js-js"></script>
-    {{ if $.Site.Params.expandSidebar }}
-      <script type="text/javascript" src='{{ relURL "assets/js/app-anim.js" }}' id="appanim-js"></script>
-    {{ else }}
-      <script type="text/javascript" src='{{ relURL "assets/js/app-mini.js" }}' id="appmini-js"></script>
-    {{ end }}
-    <script type="text/javascript">
-      $(document).ready(function(){
+<script type='text/javascript' src='{{ relURL "assets/js/jquery.ui.touch-punch.min-0.2.2.js" }}' id='jqueryui-touch-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/clipboard.min-5.6.2.js" }}' id='clipboard-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/tooltip-extend.js" }}' id='iplaycode-nav-js'></script>
+<script type='text/javascript' id='popper-js-extra'>
+/* <![CDATA[ */
+//var theme = {"ajaxurl":"https:\/\/nav.baidu.com\/wp-admin\/admin-ajax.php","addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/onenav\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"1","icourl":"https:\/\/api.badi.cn\/favicon\/","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"0","lazyload":"1","minNav":"1","loading":"1","hotWords":"baidu","classColumns":" col-sm-6 col-md-4 col-xl-5a col-xxl-6a ","apikey":"TWpBeU1UVTNOekk1TWpVMEIvZ1M2bFVIQllUMmxsV1dZelkxQTVPVzB3UW04eldGQmxhM3BNWW14bVNtWk4="};
+var theme = {"ajaxurl":"","addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/onenav\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"1","icourl":"","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"0","lazyload":"1","minNav":"1","loading":"1","hotWords":"baidu","classColumns":" col-sm-6 col-md-4 col-xl-5a col-xxl-6a ","apikey":"TWpBeU1UVTNOekk1TWpVMEIvZ1M2bFVIQllUMmxsV1dZelkxQTVPVzB3UW04eldGQmxhM3BNWW14bVNtWk4="};
+/* ]]> */
+</script>
+<!-- 弹窗js -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- 结束 -->
+<script type='text/javascript' src='{{ relURL "assets/js/popper.min.js" }}' id='popper-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/bootstrap.min-4.3.1.js" }}' id='bootstrap-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/theia-sticky-sidebar-1.5.0.js" }}' id='sidebar-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/lazyload.min-12.4.0.js" }}' id='lazyload-js'></script>
+<script type='text/javascript' src='{{ relURL "assets/js/fancybox.min-3.5.7.js" }}' id='lightbox-js-js'></script>
+{{ if $.Site.Params.expandSidebar }}
+<script type='text/javascript' src='{{ relURL "assets/js/app-anim.js" }}' id='appanim-js'></script>
+{{ else }}
+<script type='text/javascript' src='{{ relURL "assets/js/app-mini.js" }}' id='appmini-js'></script>
+{{ end }}
+<script type="text/javascript">
+    $(document).ready(function(){
         var siteWelcome = $('#loading');
         siteWelcome.addClass('close');
         setTimeout(function() {
-          siteWelcome.remove();
+            siteWelcome.remove();
         }, 600);
-      });
-    </script>
-    <script>
-      $(document).ready(function(){
+    });
+</script>
+<script>        
+    $(document).ready(function(){
         setTimeout(function () {
-          if ($('a.smooth[href="' + window.location.hash + '"]')[0]) {
-            $('a.smooth[href="' + window.location.hash + '"]').click();
-          } else if (window.location.hash != '') {
-            $("html, body").animate({
-              scrollTop: $(window.location.hash).offset().top - 90
-            }, {
-              duration: 500,
-              easing: "swing"
-            });
-          }
+            if ($('a.smooth[href="' + window.location.hash + '"]')[0]) {
+                $('a.smooth[href="' + window.location.hash + '"]').click();
+            }else if (window.location.hash != '') {
+                $("html, body").animate({
+                    scrollTop: $(window.location.hash).offset().top - 90
+                }, {
+                    duration: 500,
+                    easing: "swing"
+                });
+            }
         }, 300);
         $(document).on('click','a.smooth',function(ev) {
-          if($('#sidebar').hasClass('show') && !$(this).hasClass('change-href')){
-            $('#sidebar').modal('toggle');
-          }
-          if($(this).attr("href").substr(0, 1) == "#"){
-            $("html, body").animate({
-              scrollTop: $($(this).attr("href")).offset().top - 90
-            }, {
-              duration: 500,
-              easing: "swing"
-            });
-          }
-          if($(this).hasClass('go-search-btn')){
-            $('#search-text').focus();
-          }
-          if(!$(this).hasClass('change-href')){
-            var menu = $("a" + $(this).attr("href"));
-            menu.click();
-            toTarget(menu.parent().parent(), true, true);
-          }
+            if($('#sidebar').hasClass('show') && !$(this).hasClass('change-href')){
+                $('#sidebar').modal('toggle');
+            }
+            if($(this).attr("href").substr(0, 1) == "#"){
+                $("html, body").animate({
+                    scrollTop: $($(this).attr("href")).offset().top - 90
+                }, {
+                    duration: 500,
+                    easing: "swing"
+                });
+            }
+            if($(this).hasClass('go-search-btn')){
+                $('#search-text').focus();
+            }
+            if(!$(this).hasClass('change-href')){
+                var menu =  $("a"+$(this).attr("href"));
+                menu.click();
+                toTarget(menu.parent().parent(),true,true);
+            }
         });
         $(document).on('click','a.tab-noajax',function(ev) {
-          var url = $(this).data('link');
-          if(url)
-            $(this).parents('.d-flex.flex-fill.flex-tab')
-              .children('.btn-move.tab-move')
-              .show().attr('href', url);
-          else
-            $(this).parents('.d-flex.flex-fill.flex-tab')
-              .children('.btn-move.tab-move')
-              .hide();
+            var url = $(this).data('link');
+            if(url)
+                $(this).parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').show().attr('href', url);
+            else
+                $(this).parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').hide();
         });
-      });
-    </script>
+        
+    });
+</script>
 
-    <!-- 新的暗/亮模式代码：默认跟随系统，用户点击切换后保存状态到 sessionStorage（当前会话有效） -->
-    <script>
-      (function(){
-        var manualMode = sessionStorage.getItem('night-mode'); // '1' 表示暗色, '0' 表示亮色
-        if(manualMode) {
-          if(manualMode === '1'){
-            document.body.classList.add('manual-dark');
-            $(".switch-dark-mode").attr("data-original-title", "切换为日间模式");
-            $(".mode-ico").removeClass("icon-night").addClass("icon-light");
-          } else {
-            document.body.classList.add('manual-light');
-            $(".switch-dark-mode").attr("data-original-title", "切换为夜间模式");
-            $(".mode-ico").removeClass("icon-light").addClass("icon-night");
-          }
+<script>
+//夜间(日间)模式
+(function(){
+    if(document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") === ''){
+        if(new Date().getHours() > 22 || new Date().getHours() < 6){
+            document.body.classList.remove('io-black-mode');
+            document.body.classList.add('io-grey-mode');
+            document.cookie = "night=1;path=/";
+            console.log('夜间模式开启');
+        }else{
+            document.body.classList.remove('night');
+            document.cookie = "night=0;path=/";
+            console.log('夜间模式关闭');
         }
-      })();
-      
-      // 手动切换暗/亮模式（点击按钮时调用此函数）
-      function switchNightMode(){
-        var manualMode = sessionStorage.getItem('night-mode');
-        if(manualMode && manualMode === '1'){
-          // 当前为暗色模式，切换到亮色模式
-          document.body.classList.remove('manual-dark');
-          document.body.classList.add('manual-light');
-          sessionStorage.setItem('night-mode', '0');
-          $(".switch-dark-mode").attr("data-original-title", "切换为夜间模式");
-          $(".mode-ico").removeClass("icon-light").addClass("icon-night");
-          console.log('手动切换到亮色模式');
-        } else {
-          // 当前为亮色模式（或无手动设置），切换到暗色模式
-          document.body.classList.remove('manual-light');
-          document.body.classList.add('manual-dark');
-          sessionStorage.setItem('night-mode', '1');
-          $(".switch-dark-mode").attr("data-original-title", "切换为日间模式");
-          $(".mode-ico").removeClass("icon-night").addClass("icon-light");
-          console.log('手动切换到暗色模式');
+    }else{
+        var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+        if(night == '0'){
+            document.body.classList.remove('night');
+        }else if(night == '1'){
+            document.body.classList.add('night');
         }
-      }
-    </script>
+    }
+})();
+//夜间(日间)模式切换
+$("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageL }})");   //默认浅色背景
+function switchNightMode(){
+    var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+    if(night == '0'){
+	$("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageL }})");
+        document.body.classList.remove('io-grey-mode');
+        document.body.classList.add('io-black-mode');
+        document.cookie = "night=1;path=/"
+        console.log(' ');
+        $(".switch-dark-mode").attr("data-original-title","日间模式");
+        $(".mode-ico").removeClass("icon-night");
+        $(".mode-ico").addClass("icon-light");
+    }else{
+	$("#search-bg").css("background-image", "url({{ $.Site.Params.images.searchImageD }})")
+        document.body.classList.remove('io-black-mode');
+        document.body.classList.add('io-grey-mode');
+        document.cookie = "night=0;path=/"
+        console.log(' ');
+        $(".switch-dark-mode").attr("data-original-title","夜间模式");
+        $(".mode-ico").removeClass("icon-light");
+        $(".mode-ico").addClass("icon-night");
+    }
+}
+</script>
+<script>
+//网站运行时长
+var BootDate = new Date("2025/5/25 20:00:00");//设置网站运行时间，格式：年/月/日 时:分:秒
+function ShowRunTime(id) {
+var NowDate = new Date();
+var RunDateM = parseInt(NowDate - BootDate);
+var RunDays = Math.floor(RunDateM/(24*3600*1000));
+var RunHours = Math.floor(RunDateM%(24*3600*1000)/(3600*1000));
+var RunMinutes = Math.floor(RunDateM%(24*3600*1000)%(3600*1000)/(60*1000));
+var RunSeconds = Math.round(RunDateM%(24*3600*1000)%(3600*1000)%(60*1000)/1000);
+var RunTime = RunDays + "天" + RunHours + "时" + RunMinutes + "分" + RunSeconds + "秒";
+document.getElementById(id).innerHTML = "WOabc已运行：" + RunTime;
+}
+setInterval("ShowRunTime('RunTime')", 1000);
+</script>
+<script>
+  // 函数：检测是否为移动端设备 (基于屏幕宽度)此处为添加到主屏幕弹窗
+  function isMobileDevice() {
+    return window.innerWidth <= 768; // 你可以根据需要调整这个宽度阈值
+  }
 
-    <script>
-      // 网站运行时长
-      var BootDate = new Date("2025/5/25 20:00:00"); // 设置网站运行时间，格式：年/月/日 时:分:秒
-      function ShowRunTime(id) {
-        var NowDate = new Date();
-        var RunDateM = parseInt(NowDate - BootDate);
-        var RunDays = Math.floor(RunDateM/(24*3600*1000));
-        var RunHours = Math.floor(RunDateM % (24*3600*1000) / (3600*1000));
-        var RunMinutes = Math.floor(RunDateM % (24*3600*1000) % (3600*1000) / (60*1000));
-        var RunSeconds = Math.round(RunDateM % (24*3600*1000) % (3600*1000) % (60*1000) / 1000);
-        var RunTime = RunDays + "天" + RunHours + "时" + RunMinutes + "分" + RunSeconds + "秒";
-        document.getElementById(id).innerHTML = "WOabc已运行：" + RunTime;
+  // 仅在移动端设备上执行
+  if (isMobileDevice()) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom', // 固定在屏幕底部
+      showConfirmButton: false,
+      timer: 10000, // 显示时间为10秒
+      timerProgressBar: true,
+      width: '165px', //  调整后的弹窗宽度 (可以根据实际效果调整)
+      customClass: {
+        popup: 'mobile-guide-toast' // 自定义类，用于CSS样式 (包括箭头)
+      },
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-      setInterval("ShowRunTime('RunTime')", 1000);
-    </script>
-    <script>
-      // 检测是否为移动端设备（基于屏幕宽度），用于添加到主屏幕弹窗
-      function isMobileDevice() {
-        return window.innerWidth <= 768; // 可根据需要调整宽度阈值
-      }
-      
-      // 如果是移动端，则显示提示弹窗
-      if (isMobileDevice()) {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'bottom', // 固定在屏幕底部
-          showConfirmButton: false,
-          timer: 10000, // 显示时间为10秒
-          timerProgressBar: true,
-          width: '165px', // 调整后的弹窗宽度
-          customClass: {
-            popup: 'mobile-guide-toast' // 自定义类，用于CSS样式
-          },
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          }
-        });
-      
-        Toast.fire({
-          html: `
-            <div style="text-align: center; line-height: 1.25; font-size: 10px;">
-              添加网址导航到桌面<br>
-              点击下面的 <img alt="分享图标" class="inline-icon highlight-icon" src="assets/images/1122.jpg" style="height: 14px; width: 14px; vertical-align: middle; margin: 2px 4px;"/> <br>
-              然后选择“添加到主屏幕”
-            </div>
-          `,
-        });
-      }
-    </script>
-  </body>
+    });
+
+    Toast.fire({
+      html: `
+        <div style="text-align: center; line-height: 1.25; font-size: 10px;">
+          添加网址导航到桌面<br>
+          点击下面的 <img alt="分享图标" class="inline-icon highlight-icon" src="assets/images/1122.jpg" style="height: 14px; width: 14px; vertical-align: middle; margin: 2px 4px;"/> <br>
+          然后选择“添加到主屏幕”
+        </div>
+      `,
+    });
+  }
+</script>
+</script>
+</body>
 </html>
